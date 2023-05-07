@@ -306,11 +306,12 @@ class AppStore extends Component {
   }
 
   getTabFilteredList = () => {
-    const {activeTabId} = this.state
+    const {activeTabId, inputValue} = this.state
     const filteredList = appsList.filter(
-      eachItem => eachItem.category === activeTabId,
+      eachItem =>
+        eachItem.category === activeTabId &&
+        eachItem.appName.toLowerCase().includes(inputValue.toLowerCase()),
     )
-
     return filteredList
   }
 
@@ -318,8 +319,6 @@ class AppStore extends Component {
     console.log('inputTriggered')
     const gatheredInput = event.target.value
     console.log(gatheredInput)
-
-    this.setState({activeTabId: gatheredInput})
     this.setState({inputValue: gatheredInput})
   }
 
@@ -339,11 +338,19 @@ class AppStore extends Component {
     return (
       <div className="app-container">
         <h1> App store </h1>
-        <input
-          type="search"
-          placeholder="Search"
-          onChange={this.onChangeInput}
-        />
+        <div className="search-container">
+          <input
+            type="search"
+            placeholder="Search"
+            onChange={this.onChangeInput}
+            className="input-el"
+          />
+          <img
+            className="search-icon"
+            src="https://assets.ccbp.in/frontend/react-js/app-store/app-store-search-img.png"
+            alt="search icon"
+          />
+        </div>
         <ul className="tab-list">
           {tabsList.map(eachItem => (
             <TabItem
@@ -354,11 +361,11 @@ class AppStore extends Component {
             />
           ))}
         </ul>
-        <div className="apps-container">
+        <ul className="apps-container">
           {filteredList.map(eachItem => (
             <AppItem eachAppDetails={eachItem} key={eachItem.appId} />
           ))}
-        </div>
+        </ul>
       </div>
     )
   }

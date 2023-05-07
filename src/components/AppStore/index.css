@@ -1,4 +1,7 @@
 /* Write your CSS here */
+* {
+  box-sizing: border-box;
+}
 
 .app-container {
   background-image: linear-gradient(to Bottom, #dfe2e5, #ace0f9);
@@ -22,4 +25,29 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 10px;
+  height: 40px;
+}
+
+.input-el {
+  background-color: #ffffff;
+  border: none;
+  outline: none;
+  width: 320px;
+  height: 35px;
+  border-radius: 8px;
+}
+
+.search-icon {
+  width: 26px;
+  height: 26px;
 }

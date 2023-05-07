@@ -14,7 +14,7 @@ const TabItem = props => {
 
   return (
     <li className={`list-item ${decorationEl}`} onClick={onClickChangeTab}>
-      {displayText}
+      <button className=" button ">{displayText}</button>
     </li>
   )
 }

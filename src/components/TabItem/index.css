@@ -6,10 +6,17 @@
   list-style-type: none;
   cursor: pointer;
   outline: none;
+  border-bottom: 2px solid #7b8794;
 }
 
 .decoration {
   opacity: 1;
   color: #2563eb;
   border-bottom: 2px solid #2563eb;
+}
+
+.button {
+  border: none;
+  background-color: transparent;
+  width: 100px;
 }

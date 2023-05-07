@@ -12,6 +12,7 @@
   align-items: center;
   padding: 8px;
   margin: 10px;
+  list-style-type: none;
 }
 
 .image {
@@ -21,5 +22,6 @@
 }
 
 .app-name {
-  font-size: 26px;
+  font-size: 20px;
+  text-align: center;
 }
