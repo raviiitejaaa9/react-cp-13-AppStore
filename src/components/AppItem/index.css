@@ -1,18 +1,25 @@
 /* Write your CSS here */
 
 .app-display {
-  width: 130px;
-  height: 150px;
+  width: 150px;
+  height: 170px;
   background-color: #ffffff;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  padding: 8px;
+  margin: 10px;
 }
 
 .image {
-  width: 80px;
-  height: 80px;
+  width: 65px;
+  height: 65px;
+  margin-top: 8px;
+}
+
+.app-name {
+  font-size: 26px;
 }

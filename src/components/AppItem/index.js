@@ -8,7 +8,7 @@ const AppItem = props => {
   return (
     <div className="app-display">
       <img className="image" src={imageUrl} alt={appName} />
-      <h1> {appName} </h1>
+      <h1 className="app-name"> {appName} </h1>
     </div>
   )
 }

@@ -13,6 +13,8 @@ const tabsList = [
   {tabId: 'FOOD', displayText: 'Food'},
 ]
 
+console.log(tabsList[0].tabId)
+
 const appsList = [
   {
     appId: 0,
@@ -299,10 +301,11 @@ const appsList = [
 
 class AppStore extends Component {
   state = {
-    ativeTabId: tabsList[0],
+    activeTabId: tabsList[0].tabId,
+    inputValue: '',
   }
 
-  getFilteredList = () => {
+  getTabFilteredList = () => {
     const {activeTabId} = this.state
     const filteredList = appsList.filter(
       eachItem => eachItem.category === activeTabId,
@@ -311,21 +314,44 @@ class AppStore extends Component {
     return filteredList
   }
 
+  onChangeInput = event => {
+    console.log('inputTriggered')
+    const gatheredInput = event.target.value
+    console.log(gatheredInput)
+
+    this.setState({activeTabId: gatheredInput})
+    this.setState({inputValue: gatheredInput})
+  }
+
+  changeTab = tabId => {
+    console.log('changeTabTriggered')
+    this.setState({activeTabId: tabId})
+  }
+
   render() {
     const {activeTabId} = this.state
     console.log(activeTabId)
 
-    const filteredList = this.getFilteredList()
+    const filteredList = this.getTabFilteredList()
 
     // console.log(filteredList)
 
     return (
       <div className="app-container">
         <h1> App store </h1>
-        <input type="search" placeholder="Search" />
+        <input
+          type="search"
+          placeholder="Search"
+          onChange={this.onChangeInput}
+        />
         <ul className="tab-list">
           {tabsList.map(eachItem => (
-            <TabItem eachTabDetails={eachItem} key={eachItem.tabId} />
+            <TabItem
+              eachTabDetails={eachItem}
+              key={eachItem.tabId}
+              changeTab={this.changeTab}
+              isTrue={eachItem.tabId === activeTabId}
+            />
           ))}
         </ul>
         <div className="apps-container">
