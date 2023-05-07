@@ -1,0 +1,7 @@
+/* Write your CSS here */
+
+.list-item {
+  opacity: 0.5;
+  margin-right: 20px;
+  list-style-type: none;
+}
